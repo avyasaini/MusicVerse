@@ -1,90 +1,82 @@
 # MusicVerse
 
-MusicVerse is a Django backend with a React + Vite frontend. The backend lives at the repository root and the frontend is in `frontend/musicverse-frontend`.
+MusicVerse is a web app with a Django backend and a React + Vite frontend.
 
-This README covers quick setup, running the backend and frontend locally, and common Git/GitHub notes.
+This README gives a short, practical guide to run the project locally, handle large files, and basic CI notes.
 
-Prerequisites
-- Python 3.11+ (or use the `py` launcher with a 3.11+ interpreter)
-- Node.js (v18+ recommended) and npm
+Requirements
+- Python 3.11+
+- Node.js (v18+) and npm
 - Git
 
-Backend (Django) — Quick start (Windows PowerShell)
-1. Open PowerShell and go to the project root:
+Quick start — Backend (Windows PowerShell)
+1. Open PowerShell and change to the project root:
 
 ```powershell
 cd "C:\Users\AVYA\Downloads\musicverse-main\musicverse-main"
 ```
 
-2. Create and activate a virtual environment (uses system `python` — ensure it's 3.11+):
+2. Create and activate a virtual environment (use Python 3.11):
 
 ```powershell
 py -3.11 -m venv .venv
 . .venv\Scripts\Activate.ps1
 ```
 
-3. Upgrade pip and install dependencies:
+3. Install Python dependencies:
 
 ```powershell
 python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-4. Run migrations and start the dev server:
+4. Apply migrations and start the dev server:
 
 ```powershell
 python manage.py migrate --noinput
 python manage.py runserver 127.0.0.1:8000
 ```
 
-Open: http://127.0.0.1:8000/
+Open http://127.0.0.1:8000/ in your browser.
 
-Frontend (React + Vite) — Quick start
-1. In a new terminal, go to the frontend folder:
+Quick start — Frontend
+1. Open a second terminal and go to the frontend folder:
 
 ```powershell
 cd frontend\musicverse-frontend
 ```
 
-2. Install deps and start Vite:
+2. Install dependencies and start Vite:
 
 ```powershell
 npm install
 npm run dev
 ```
 
-Vite typically serves at http://127.0.0.1:5173/ — open that in the browser.
+Vite usually serves at http://localhost:5173/.
 
-Environment and secrets
-- The repository does not include production secrets. For local development, add any sensitive values using a `.env` file or set environment variables. The dev `musicverse/settings.py` added in this branch is minimal — replace with your production settings when deploying.
+Environment & configuration
+- Use environment variables or a local `.env` file for secrets. Do not commit secrets to the repository.
+- For CI we use `musicverse/settings_ci.py` (checked into repo) so workflows can run without local-only secrets. For production, provide a separate settings file and secure secrets via environment variables.
 
-Git & GitHub
-- Your GitHub repo: https://github.com/avyasaini/MusicVerse
-- I added a helper script `scripts/push_to_github.ps1` that can initialize git, set identity, optionally help with Git LFS tracking for large files, and push. To run it (PowerShell):
-
-```powershell
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-.\scripts\push_to_github.ps1
-```
-
-Large files
-- GitHub rejects files >100 MB. If you have audio or other large binaries, either remove them from the repo or use Git LFS. I added a `.gitattributes` prepared to track `*.mp3`, `*.wav`, etc. Set up Git LFS with:
+Large files (audio)
+- GitHub rejects files larger than 100 MB. For audio and large binaries use Git LFS. Basic steps:
 
 ```powershell
-# install Git LFS (https://git-lfs.github.com/)
+# Install Git LFS: https://git-lfs.github.com/
 git lfs install
 git lfs track "*.mp3"
 git add .gitattributes
-git add path\to\largefile.mp3
+git add path\to\your-large-file.mp3
 git commit -m "Track large audio with Git LFS"
 git push origin main
 ```
 
-CI and next steps
-- If you want, I can add a GitHub Actions workflow to run tests and lint on each push/PR.
-- I can also split `settings.py` into `settings_dev.py` / `settings_prod.py` and wire environment-based loading.
+CI & tests
+- The repository includes a GitHub Actions workflow that runs the Django migrations and tests on push to `main`. If you want linting, frontend builds, or caching added, I can extend the workflow.
 
 License
-- This project contains an `LICENSE` file (MIT).
+- MIT — see the `LICENSE` file in this repository.
 
-If you want the README tailored further (projects run commands, example `.env` variables, or CI configuration added), tell me what to include and I will update it.
+Want changes?
+- If you'd like the README to include example `.env` keys, developer troubleshooting tips, or a developer-only quick script, tell me what to add and I will update it.
