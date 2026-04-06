@@ -1,0 +1,118 @@
+/* src/styles/Signup.css */
+
+/* Color Palette */
+:root {
+  --celadon: #7be0ad;
+  --tiffany-blue: #aee5d8;
+  --platinum: #e7e5e5;
+  --thistle: #e5d0e3;
+  --pink-lavender: #e0b0d5;
+  --dark-pink-lavender: hsl(314, 44%, 68%);
+}
+
+.signup-page-wrapper {
+  margin-top: 0 !important; /* Override GlobalStyles.css .page-wrapper margin-top */
+}
+
+.signup-container {
+  position: relative;
+  z-index: 1;
+  padding: 7rem 1rem 2rem; /* Adjusted top padding to clear navbar */
+  min-height: calc(
+    100vh - 80px
+  ); /* Ensure content fills viewport below navbar */
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+
+.signup-main-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--pink-lavender);
+  margin-bottom: 2rem;
+}
+
+.signup-card {
+  background: var(--platinum);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.signup-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-input {
+  padding: 0.5rem;
+  border: 1px solid var(--thistle);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  background: var(--platinum);
+  color: var(--dark-pink-lavender);
+  width: 100%;
+}
+
+.signup-input:focus {
+  outline: none;
+  border-color: var(--celadon);
+}
+
+.signup-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  background: var(--celadon);
+  color: var(--platinum);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.signup-button:hover {
+  background: var(--tiffany-blue);
+}
+
+.signup-button:disabled {
+  background: var(--thistle);
+  cursor: not-allowed;
+}
+
+.signup-error {
+  font-size: 0.875rem;
+  color: var(--pink-lavender);
+  background: var(--thistle);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .signup-container {
+    padding: 9rem 2rem 2rem; /* Increased top padding for desktop */
+    min-height: calc(100vh - 100px);
+  }
+
+  .signup-main-title {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .signup-container {
+    padding: 7rem 1rem 2rem;
+    min-height: calc(100vh - 80px);
+  }
+
+  .signup-card {
+    max-width: 100%;
+  }
+}

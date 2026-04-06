@@ -1,0 +1,228 @@
+/* src/styles/CommunityForum.css */
+
+/* Color Palette */
+:root {
+  --celadon: #7be0ad;
+  --tiffany-blue: #aee5d8;
+  --platinum: #e7e5e5;
+  --thistle: #e5d0e3;
+  --pink-lavender: #e0b0d5;
+  --dark-pink-lavender: hsl(314, 44%, 68%);
+}
+
+.community-forum-page-wrapper {
+  margin-top: 0 !important; /* Override GlobalStyles.css .page-wrapper margin-top */
+}
+
+.community-forum-container {
+  position: relative;
+  z-index: 1;
+  padding: 7rem 1rem 2rem; /* Adjusted top padding to clear navbar */
+  min-height: calc(
+    100vh - 80px
+  ); /* Ensure content fills viewport below navbar */
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+
+.community-forum-main-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--pink-lavender);
+  margin-bottom: 2rem;
+}
+
+.community-forum-loading {
+  font-size: 1.25rem;
+  color: var(--dark-pink-lavender);
+}
+
+.community-forum-error {
+  font-size: 1.25rem;
+  color: var(--pink-lavender);
+  background: var(--thistle);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.community-forum-empty {
+  font-size: 1.25rem;
+  color: var(--dark-pink-lavender);
+}
+
+.community-forum-post-form {
+  background: var(--platinum);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  max-width: 600px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.community-forum-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.community-forum-card {
+  background: var(--platinum);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.community-forum-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--pink-lavender);
+  margin-bottom: 0.75rem;
+}
+
+.community-forum-content {
+  font-size: 0.875rem;
+  color: var(--dark-pink-lavender);
+  margin-bottom: 0.75rem;
+}
+
+.community-forum-meta {
+  font-size: 0.75rem;
+  color: var(--thistle);
+  margin-bottom: 1rem;
+}
+
+.community-forum-comment-form {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.community-forum-input,
+.community-forum-textarea {
+  padding: 0.5rem;
+  border: 1px solid var(--thistle);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  background: var(--platinum);
+  color: var(--dark-pink-lavender);
+  width: 100%;
+}
+
+.community-forum-input:focus,
+.community-forum-textarea:focus {
+  outline: none;
+  border-color: var(--celadon);
+}
+
+.community-forum-textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.community-forum-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: var(--platinum);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.community-forum-button:disabled {
+  background: var(--thistle);
+  cursor: not-allowed;
+}
+
+.community-forum-post {
+  background: var(--celadon);
+}
+
+.community-forum-post:hover {
+  background: var(--tiffany-blue);
+}
+
+.community-forum-comment {
+  background: var(--tiffany-blue);
+}
+
+.community-forum-comment:hover {
+  background: var(--celadon);
+}
+
+.community-forum-comments {
+  margin-top: 1rem;
+}
+
+.community-forum-section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--pink-lavender);
+  margin-bottom: 0.75rem;
+}
+
+.community-forum-comment-card {
+  background: var(--thistle);
+  border-radius: 8px;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.community-forum-comment-content {
+  font-size: 0.875rem;
+  color: var(--dark-pink-lavender);
+  margin-bottom: 0.25rem;
+}
+
+.community-forum-comment-meta {
+  font-size: 0.75rem;
+  color: var(--pink-lavender);
+}
+
+.community-forum-no-comments {
+  font-size: 0.875rem;
+  color: var(--dark-pink-lavender);
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .community-forum-container {
+    padding: 9rem 2rem 2rem; /* Increased top padding for desktop */
+    min-height: calc(100vh - 100px);
+  }
+
+  .community-forum-main-title {
+    font-size: 3rem;
+  }
+
+  .community-forum-title {
+    font-size: 1.5rem;
+  }
+
+  .community-forum-section-title {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .community-forum-container {
+    padding: 7rem 1rem 2rem;
+    min-height: calc(100vh - 80px);
+  }
+
+  .community-forum-card,
+  .community-forum-post-form {
+    max-width: 100%;
+  }
+}
