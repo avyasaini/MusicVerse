@@ -78,5 +78,4 @@ CI & tests
 License
 - MIT — see the `LICENSE` file in this repository.
 
-Want changes?
-- If you'd like the README to include example `.env` keys, developer troubleshooting tips, or a developer-only quick script, tell me what to add and I will update it.
+
