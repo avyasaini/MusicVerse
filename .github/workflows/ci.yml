@@ -64,6 +64,10 @@ jobs:
         env:
           PIP_DEFAULT_TIMEOUT: '120'
 
+      - name: Debug: import settings and sys.path
+        run: |
+          python -c "import importlib, sys, pkgutil, pathlib; print('PYTHON:', sys.version); print('CWD:', pathlib.Path('.').resolve()); print('sys.path:', sys.path); print('DJANGO_SETTINGS_MODULE=', importlib.import_module('os').environ.get('DJANGO_SETTINGS_MODULE')); importlib.import_module('musicverse.settings_ci'); print('Imported musicverse.settings_ci OK')"
+
       - name: Run migrations
         run: |
           python manage.py migrate --noinput
