@@ -20,49 +20,11 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install system packages (Debian/Ubuntu)
+      - name: Install Python tooling and dependencies (simple)
         run: |
-          set -x
-          sudo apt-get update -y
-          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-            build-essential \
-            libpq-dev \
-            ffmpeg \
-            libsndfile1 \
-            gfortran \
-            libatlas-base-dev \
-            libblas-dev \
-            liblapack-dev \
-            libssl-dev \
-            pkg-config
-
-      - name: Show Python / pip info (diagnostics)
-        run: |
-          python -V
-          python -c "import sys; print('executable:', sys.executable)"
-          pip -V
-          pip debug --verbose || true
-          which ffmpeg || true
-          ffmpeg -version || true
-
-      - name: Install Python tooling and dependencies (with retries)
-        run: |
-          set -x
           python -m pip install --upgrade pip setuptools wheel
-          # try pip install up to 3 times to avoid transient network/timeouts
-          n=0
-          until [ "$n" -ge 3 ]
-          do
-            pip install --prefer-binary --no-cache-dir -r requirements.txt && break
-            n=$((n+1))
-            echo "pip install failed, retrying ($n/3)..."
-            sleep 5
-          done
-          if [ "$n" -ge 3 ]; then
-            echo "pip install failed after 3 attempts"; exit 1
-          fi
-        env:
-          PIP_DEFAULT_TIMEOUT: '120'
+          # use prefer-binary to favor wheels over source builds
+          pip install --prefer-binary --no-cache-dir -r requirements.txt
 
       - name: Run migrations
         run: |
