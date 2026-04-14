@@ -1,0 +1,7 @@
+{
+  "name": "musicverse-vercel-proxy",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "cd frontend/musicverse-frontend && npm install && npm run build"
+  }
+}
