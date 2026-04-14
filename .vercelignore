@@ -1,0 +1,10 @@
+# Ignore all backend Django files so Vercel doesn't crash trying to build Serverless functions
+manage.py
+requirements.txt
+db.sqlite3
+musicverse/
+music/
+users/
+social/
+community/
+.venv/
