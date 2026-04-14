@@ -143,7 +143,7 @@ export default function Signup() {
           <motion.button
             type="submit"
             className="signup-button"
-            disabled={isSubmitting || validationErrors.length > 0}
+            disabled={isSubmitting}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

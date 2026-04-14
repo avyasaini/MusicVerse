@@ -323,9 +323,9 @@ export default function Dashboard() {
                     whileHover={{ scale: 1.05 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
-                    {currentSong.cover ? (
+                    {currentSong.album?.cover_art ? (
                       <img
-                        src={currentSong.cover}
+                        src={currentSong.album.cover_art}
                         alt={currentSong.name}
                         className="dashboard-song-image"
                       />
@@ -432,9 +432,9 @@ export default function Dashboard() {
                     whileHover={{ scale: 1.05 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
-                    {song.cover ? (
+                    {song.album?.cover_art ? (
                       <img
-                        src={song.cover}
+                        src={song.album.cover_art}
                         alt={song.name}
                         className="dashboard-song-image"
                       />
@@ -517,9 +517,9 @@ export default function Dashboard() {
                       whileHover={{ scale: 1.05 }}
                       transition={{ type: "spring", stiffness: 300 }}
                     >
-                      {song.cover ? (
+                      {song.album?.cover_art ? (
                         <img
-                          src={song.cover}
+                          src={song.album.cover_art}
                           alt={song.name}
                           className="dashboard-song-image"
                         />

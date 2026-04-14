@@ -94,12 +94,14 @@ class Command(BaseCommand):
     help = 'Load music data from clustered_df.csv into the database and link audio files'
 
     def handle(self, *args, **kwargs):
+        from django.conf import settings
+        
         # Path to your CSV
-        csv_path = r'C:\Users\gauta\Desktop\musicverse\music\management\commands\clustered_df.csv'
+        csv_path = os.path.join(settings.BASE_DIR, 'music', 'management', 'commands', 'clustered_df.csv')
         df = pd.read_csv(csv_path)
 
         # Base path for audio files
-        audio_base_path = r'C:\Users\gauta\Desktop\musicverse\media\audio_files'
+        audio_base_path = os.path.join(settings.BASE_DIR, 'media', 'audio_files')
 
         # Track unique artists and albums to avoid duplicates
         artist_cache = {}

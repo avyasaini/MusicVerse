@@ -4,18 +4,12 @@
 
 /* Color Palette */
 :root {
-  --celadon: #7be0ad;
-  --tiffany-blue: #aee5d8;
-  --platinum: #e7e5e5;
-  --thistle: #e5d0e3;
-  --pink-lavender: #e0b0d5;
-  --gradient-radial: radial-gradient(
-    var(--celadon),
-    var(--tiffany-blue),
-    var(--platinum),
-    var(--thistle),
-    var(--pink-lavender)
-  );
+  --celadon: #a855f7;
+  --tiffany-blue: #27272a;
+  --platinum: #18181b;
+  --thistle: #09090b;
+  --pink-lavender: #f4f4f5;
+  --gradient-radial: radial-gradient(circle at top center, #2e1065, #09090b);
 }
 
 /* Reset */
@@ -109,4 +103,108 @@ ul {
     padding: 2rem;
     /* margin-top: 400px; */
   }
+}
+
+/* ========================================= */
+/* 🌌 GLOBAL MUSICVERSE PREMIUM OVERRIDES 🌌 */
+/* ========================================= */
+
+/* 1. Global Glowing Buttons */
+.communities-button, 
+.community-forum-button, 
+.login-button, 
+.signup-button, 
+.messages-button, 
+.player-recommend-btn, 
+.playlists-button, 
+.profile-button,
+.profile-edit-button,
+.dashboard-infinity-button {
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 50px !important;
+  box-shadow: 0 8px 25px rgba(168, 85, 247, 0.4) !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  font-weight: 600 !important;
+  padding: 0.75rem 1.5rem !important;
+}
+
+.communities-button:hover, 
+.community-forum-button:hover, 
+.login-button:hover, 
+.signup-button:hover, 
+.messages-button:hover, 
+.player-recommend-btn:hover, 
+.playlists-button:hover, 
+.profile-button:hover,
+.profile-edit-button:hover,
+.dashboard-infinity-button:hover {
+  transform: translateY(-3px) scale(1.03) !important;
+  box-shadow: 0 12px 35px rgba(236, 72, 153, 0.6) !important;
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%) !important;
+  opacity: 1 !important;
+}
+
+.communities-button:disabled, 
+.community-forum-button:disabled, 
+.login-button:disabled, 
+.signup-button:disabled, 
+.messages-button:disabled, 
+.player-recommend-btn:disabled, 
+.playlists-button:disabled, 
+.profile-button:disabled,
+.dashboard-infinity-button:disabled {
+  background: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: none !important;
+  transform: none !important;
+  color: rgba(255, 255, 255, 0.4) !important;
+  cursor: not-allowed !important;
+}
+
+/* 2. Global Glassmorphism Cards */
+.login-card, 
+.signup-card, 
+.profile-card,
+.profile-info,
+.profile-stats,
+.playlists-container .playlists-list,
+.communities-list,
+.community-forum-container .post-form,
+.messages-list,
+.messages-container .message-form {
+  background: rgba(20, 20, 30, 0.3) !important;
+  backdrop-filter: blur(28px) !important;
+  -webkit-backdrop-filter: blur(28px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), inset 0 0 40px rgba(168, 85, 247, 0.05) !important;
+}
+
+/* 3. Text & Input Glowing Inputs */
+.login-input, 
+.signup-input, 
+.profile-input, 
+.playlists-input,
+.community-forum-input,
+.messages-input {
+  background: rgba(255,255,255,0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: white !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+}
+
+.login-input:focus, 
+.signup-input:focus, 
+.profile-input:focus, 
+.playlists-input:focus,
+.community-forum-input:focus,
+.messages-input:focus {
+  border-color: #a855f7 !important;
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.3) !important;
+  background: rgba(255,255,255,0.1) !important;
+  outline: none !important;
 }

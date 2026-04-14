@@ -2,11 +2,11 @@
 
 /* Color Palette */
 :root {
-  --celadon: #7be0ad;
-  --tiffany-blue: #aee5d8;
-  --platinum: #e7e5e5;
-  --thistle: #e5d0e3;
-  --pink-lavender: #e0b0d5;
+  --celadon: #a855f7;
+  --tiffany-blue: #27272a;
+  --platinum: #18181b;
+  --thistle: #09090b;
+  --pink-lavender: #f4f4f5;
 }
 
 .navbar {
@@ -56,7 +56,7 @@
   justify-content: center;
   border: 3px solid var(--celadon);
   font-weight: 600;
-  color: var(--platinum);
+  color: var(--pink-lavender);
 }
 
 .navbar-avatar {

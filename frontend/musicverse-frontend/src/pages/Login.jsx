@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import "../styles/Login.css";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -14,19 +14,17 @@ export default function Login() {
   // Client-side validation
   const validationErrors = useMemo(() => {
     const errors = [];
-    if (!email) errors.push("Email is required");
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
-      errors.push("Invalid email format");
+    if (!username) errors.push("Username is required");
     if (!password) errors.push("Password is required");
     return errors;
-  }, [email, password]);
+  }, [username, password]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     setIsSubmitting(true);
 
-    console.log("Submitting:", { email, password }); // Debug
+    console.log("Submitting:", { username, password }); // Debug
 
     // Check client-side validation
     if (validationErrors.length > 0) {
@@ -40,7 +38,7 @@ export default function Login() {
       const tokenResponse = await axios.post(
         "/auth/jwt/create/",
         {
-          email,
+          username,
           password,
         },
         {
@@ -69,8 +67,8 @@ export default function Login() {
       let errorMessage = "Login failed";
       if (errorData) {
         if (errorData.detail) errorMessage = errorData.detail;
-        else if (errorData.email)
-          errorMessage = `Email: ${errorData.email.join(", ")}`;
+        else if (errorData.username)
+          errorMessage = `Username: ${errorData.username.join(", ")}`;
         else if (errorData.password)
           errorMessage = `Password: ${errorData.password.join(", ")}`;
         else if (errorData.non_field_errors)
@@ -103,10 +101,10 @@ export default function Login() {
         >
           <div className="login-form-group">
             <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email"
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Username"
               className="login-input"
               required
               disabled={isSubmitting}
@@ -126,7 +124,7 @@ export default function Login() {
           <motion.button
             type="submit"
             className="login-button"
-            disabled={isSubmitting || validationErrors.length > 0}
+            disabled={isSubmitting}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
