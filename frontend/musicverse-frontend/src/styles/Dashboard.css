@@ -5,7 +5,7 @@
 }
 
 .dashboard-container {
-  padding: 6rem 1rem 4rem;
+  padding: 0 1rem 2rem; /* 0 top padding, the PageWrapper/app-main handles clearance */
   font-family: "Poppins", sans-serif;
   text-align: center;
 }
@@ -18,10 +18,10 @@
 }
 
 .dashboard-title {
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem); /* Fluid typography */
   font-weight: 800;
   color: var(--pink-lavender);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
   background: linear-gradient(90deg, var(--celadon), var(--pink-lavender));
   -webkit-background-clip: text;
@@ -29,7 +29,7 @@
 }
 
 .dashboard-section-title {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 700;
   color: var(--pink-lavender);
   margin-bottom: 1.5rem;
@@ -72,12 +72,12 @@
 .dashboard-current-queue {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2.5rem;
-  margin-bottom: 4rem;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  margin-bottom: 3rem;
 }
 
 .dashboard-section {
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .dashboard-infinity-button {
@@ -102,8 +102,8 @@
 
 .dashboard-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); /* Resized for better smaller screen fitting */
+  gap: 1.5rem;
 }
 
 .dashboard-song-image,
