@@ -1,5 +1,7 @@
 # MusicVerse
 
+👉 **Live Demo:** [https://music-verse-bd6p.vercel.app](https://music-verse-bd6p.vercel.app)
+
 MusicVerse is a web app with a Django backend and a React + Vite frontend.
 
 This README gives a short, practical guide to run the project locally, handle large files, and basic CI notes.
