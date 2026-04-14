@@ -60,8 +60,8 @@ body {
 
 .app-main {
   flex: 1;
-  padding: 7rem 1rem 2rem; /* Clean 7rem safe area for Navbar, no extreme bottom padding */
-  max-width: 1400px; /* Kept dynamic width */
+  padding: 6.5rem 1.5rem 4rem; /* Clean safe area for Navbar, generous bottom padding for scrolling */
+  max-width: 1200px; /* Classic max width */
   margin: 0 auto;
   width: 100%;
 }
