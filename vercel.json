@@ -1,0 +1,8 @@
+{
+  "buildCommand": "cd frontend/musicverse-frontend && npm install && npm run build",
+  "outputDirectory": "frontend/musicverse-frontend/dist",
+  "framework": "vite",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
