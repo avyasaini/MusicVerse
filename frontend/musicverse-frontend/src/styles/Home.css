@@ -13,13 +13,13 @@
 }
 
 .home-hero {
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
   position: relative;
   z-index: 10;
 }
 
 .home-title {
-  font-size: 4.5rem;
+  font-size: 3rem; /* Scaled down for standard laptop screens at 100% zoom */
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 1.5rem;

@@ -60,10 +60,9 @@ body {
 
 .app-main {
   flex: 1;
-  padding: 6.5rem 1.5rem 4rem; /* Clean safe area for Navbar, generous bottom padding for scrolling */
-  max-width: 1200px; /* Classic max width */
-  margin: 0 auto;
+  padding: 5rem 2% 2rem; /* Tighter 5rem top pad to clear 60px navbar without wasting screen height */
   width: 100%;
+  margin: 0 auto;
 }
 
 .page-wrapper {
