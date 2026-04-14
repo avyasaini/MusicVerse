@@ -1,15 +1,12 @@
 /* src/styles/Home.css */
 
 .home-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: block; /* Switch to native block rendering to guarantee full vertical sequence */
   min-height: 100vh;
   text-align: center;
-  padding: 2rem 2rem 4rem; /* Reduced to avoid double padding with app-main */
+  padding: 2rem 2rem 4rem; 
   font-family: "Poppins", sans-serif;
   position: relative;
-  overflow: hidden;
 }
 
 .home-hero {
